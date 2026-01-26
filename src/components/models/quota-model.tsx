@@ -95,7 +95,7 @@ export default function QuotaModal({
 
                 <div className="space-y-2">
                   <a
-                    href="tel:+1234567890"
+                    href="tel:+917498095819"
                     className="flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 hover:bg-slate-800 border border-slate-700 transition-colors group"
                   >
                     <div className="w-10 h-10 rounded-lg bg-indigo-500/20 flex items-center justify-center border border-indigo-500/30 group-hover:bg-indigo-500/30 transition-colors">
