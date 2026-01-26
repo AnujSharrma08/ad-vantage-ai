@@ -107,7 +107,7 @@ export default function QuotaModal({
                     </div>
                   </a>
                   <a
-                    href="mailto:support@advantage.com"
+                    href="mailto:sharrma26@gmail.com"
                     className="flex
                     items-center gap-3 p-3 rounded-xl bg-slate-800/50
                     hover:bg-slate-800 border border-slate-700 transition-colors
