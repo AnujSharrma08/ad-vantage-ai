@@ -28,12 +28,7 @@ export const useProfileStore = create<ProfileStore>((set) => ({
             }
 
             const profileData: UserProfile = await fetchProfile(user.id);
-
-            localStorage.setItem(
-                LOCAL_STORAGE_KEYS.USER_PROFILE,
-                JSON.stringify(profileData)
-            );
-
+            
             set({ profile: profileData, loading: false });
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {
