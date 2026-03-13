@@ -157,7 +157,7 @@ const OTPModal: React.FC<OTPModalProps> = ({
 };
 
 // Main Auth Page Component
-const AuthScreen: React.FC = () => {
+const AuthPage: React.FC = () => {
   const router = useRouter();
   const [activeTab, setActiveTab] = useState<"signin" | "signup">("signin");
   const [formData, setFormData] = useState<FormData>({ name: "", email: "" });
@@ -485,4 +485,4 @@ const AuthScreen: React.FC = () => {
   );
 };
 
-export default AuthScreen;
+export default AuthPage;

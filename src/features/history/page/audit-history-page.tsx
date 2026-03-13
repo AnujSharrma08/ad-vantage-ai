@@ -11,13 +11,13 @@ import {
   MoreHorizontal,
   Loader2,
 } from "lucide-react";
-import { fetchAuditById, fetchAuditHistory } from "../services/audit/audit";
-import Translate from "./Translate";
-import AuditDetailModal from "./models/audit-model";
-import Pagination from "./pagination";
+import { LOCAL_STORAGE_KEYS } from "@/src/services/constants";
+import { fetchAuditById, fetchAuditHistory } from "@/src/services/audit/audit";
+import Translate from "../../global/components/Translate";
+import Pagination from "../components/pagination";
+import AuditDetailModal from "../components/models/audit-model";
+import { S3_BASE_URL } from "@/src/services/api-key";
 import Image from "next/image";
-import { S3_BASE_URL } from "../services/api-key";
-import { LOCAL_STORAGE_KEYS } from "../services/constants";
 
 interface AuditItem {
   id: number;
@@ -42,7 +42,7 @@ interface AuditDetail {
   created_at: string;
 }
 
-export default function HistoryTable() {
+export default function AuditHistoryPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(false);
@@ -57,7 +57,9 @@ export default function HistoryTable() {
   // Get user ID from localStorage
   const getUserId = () => {
     try {
-      const user = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEYS.USER) || "{}");
+      const user = JSON.parse(
+        localStorage.getItem(LOCAL_STORAGE_KEYS.USER) || "{}"
+      );
       return user.id?.toString() || "";
     } catch (error) {
       console.error("Error parsing user from localStorage:", error);
@@ -88,7 +90,7 @@ export default function HistoryTable() {
   // Load data on mount and page change
   useEffect(() => {
     loadAuditHistory(currentPage);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPage]);
 
   // Handle page change

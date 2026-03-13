@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslate } from "../hooks/useTranslate";
+import { useTranslate } from "@/src/hooks/useTranslate";
 
 interface TranslateProps {
   text: string;

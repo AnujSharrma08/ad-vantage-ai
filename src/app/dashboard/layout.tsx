@@ -1,7 +1,7 @@
 "use client";
 
-import Providers from "@/src/components/Providers";
-import Sidebar from "@/src/components/Sidebar";
+import Providers from "@/src/features/global/components/Providers";
+import Sidebar from "@/src/features/global/components/Sidebar";
 import { useProfileStore } from "@/src/store/profile_store";
 import { JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import { useEffect } from "react";

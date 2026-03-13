@@ -1,7 +1,7 @@
 import { errorHandler } from "@/src/utils/error-handler";
-import axiosInstance from "../config";
-import { APIKEY } from "../api-key";
 import { ProcessAudit } from "@/src/types/audit-type";
+import { APIKEY } from "@/src/services/api-key";
+import axiosInstance from "@/src/services/config";
 
 export const fetchS3ImageUrl = async (fileName: string, contentType: string) => {
     try {

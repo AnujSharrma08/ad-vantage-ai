@@ -13,6 +13,7 @@ import {
   Share2,
   RotateCcw
 } from "lucide-react";
+import Image from "next/image";
 
 interface AuditResultProps {
   imageUrl: string;
@@ -141,7 +142,9 @@ export default function AuditResult({ imageUrl, score, onReset }: AuditResultPro
           className="glass rounded-2xl p-4 border border-slate-800"
         >
           <div className="relative aspect-video rounded-xl overflow-hidden bg-slate-900">
-            <img 
+            <Image
+              width={500}
+              height={500}
               src={imageUrl} 
               alt="Uploaded ad creative" 
               className="w-full h-full object-contain"

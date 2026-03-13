@@ -1,7 +1,5 @@
-import AuthScreen from "@/src/screens/auth/auth-screen";
+import AuthPage from "@/src/features/auth/page/auth-screen";
 
-const AuthPage = () => {
-    return <AuthScreen />;
+export default function AuthScreen() {
+    return <AuthPage />;
 };
-
-export default AuthPage;

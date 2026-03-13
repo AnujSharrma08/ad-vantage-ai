@@ -1,6 +1,6 @@
-import HistoryTable from "../../components/HistoryTable";
+import AuditHistoryPage from "@/src/features/history/page/audit-history-page";
 
-export default function HistoryPage() {
-  return <HistoryTable />;
+export default function HistoryScreen() {
+  return <AuditHistoryPage />;
 }
 

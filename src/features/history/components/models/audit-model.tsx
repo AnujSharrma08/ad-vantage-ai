@@ -1,6 +1,6 @@
-import { X, AlertCircle, CheckCircle, AlertTriangle } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
-import Translate from "../Translate";
+import Translate from "@/src/features/global/components/Translate";
+import { AnimatePresence, motion } from "framer-motion";
+import { X } from "lucide-react";
 import Image from "next/image";
 
 interface AuditDetail {
@@ -22,7 +22,7 @@ interface AuditDetailModalProps {
   isOpen: boolean;
   onClose: () => void;
   audit: AuditDetail | null;
-  s3BaseUrl: string;
+  s3BaseUrl?: string;
 }
 
 export default function AuditDetailModal({
@@ -38,32 +38,6 @@ export default function AuditDetailModal({
     if (score >= 60) return "score-good";
     if (score >= 40) return "score-average";
     return "score-poor";
-  };
-
-  const getRiskIcon = (risk: string) => {
-    switch (risk.toLowerCase()) {
-      case "low":
-        return <CheckCircle className="w-5 h-5 text-green-400" />;
-      case "medium":
-        return <AlertTriangle className="w-5 h-5 text-yellow-400" />;
-      case "high":
-        return <AlertCircle className="w-5 h-5 text-red-400" />;
-      default:
-        return <AlertCircle className="w-5 h-5 text-slate-400" />;
-    }
-  };
-
-  const getRiskBadgeClass = (risk: string) => {
-    switch (risk.toLowerCase()) {
-      case "low":
-        return "bg-green-500/20 text-green-400 border-green-500/30";
-      case "medium":
-        return "bg-yellow-500/20 text-yellow-400 border-yellow-500/30";
-      case "high":
-        return "bg-red-500/20 text-red-400 border-red-500/30";
-      default:
-        return "bg-slate-500/20 text-slate-400 border-slate-500/30";
-    }
   };
 
   return (
@@ -137,31 +111,6 @@ export default function AuditDetailModal({
                     {audit.score}
                   </span>
                 </div>
-
-                {/* <div className="glass rounded-xl p-4 border border-slate-800">
-                  <p className="text-sm text-slate-400 mb-2">
-                    <Translate text="Risk Level" />
-                  </p>
-                  <div className="flex items-center gap-2">
-                    {getRiskIcon(audit.analysis_json.risk)}
-                    <span
-                      className={`px-3 py-1 rounded-lg text-sm font-semibold border capitalize ${getRiskBadgeClass(
-                        audit.analysis_json.risk
-                      )}`}
-                    >
-                      {audit.analysis_json.risk}
-                    </span>
-                  </div>
-                </div> */}
-
-                {/* <div className="glass rounded-xl p-4 border border-slate-800">
-                  <p className="text-sm text-slate-400 mb-2">
-                    <Translate text="Confidence" />
-                  </p>
-                  <p className="text-lg font-bold text-white">
-                    {audit.analysis_json.confidence}%
-                  </p>
-                </div> */}
               </div>
 
               {/* Target Audience */}
@@ -214,7 +163,7 @@ export default function AuditDetailModal({
                           )}
                         </div>
                       );
-                    } catch (e) {
+                    } catch {
                       // If parsing fails, display as plain text
                       return <p>{audit.analysis_json.summary}</p>;
                     }

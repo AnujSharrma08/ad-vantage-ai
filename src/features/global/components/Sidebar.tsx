@@ -17,9 +17,8 @@ import { usePathname } from "next/navigation";
 // import { useState, useEffect } from "react";
 import Translate from "./Translate";
 import { useEffect, useState } from "react";
-import { LOCAL_STORAGE_KEYS } from "../services/constants";
-import { UserProfile } from "../types/auth-type";
-import { useProfileStore } from "../store/profile_store";
+import { useProfileStore } from "@/src/store/profile_store";
+import { LOCAL_STORAGE_KEYS } from "@/src/services/constants";
 // import { UsageTracker } from "../utils/usageTracker";
 
 const navItems = [
